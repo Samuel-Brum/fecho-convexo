@@ -1,7 +1,7 @@
 #ifndef VETOR_HPP
 #define VETOR_HPP
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 /// @brief Implementação própria de um vetor
@@ -73,6 +73,12 @@ template <typename T> class Vetor {
 				cout << array[i] << " ";
 			}
 			cout << endl;
+		}
+
+		void printPontos() {
+			for (int i = 0; i < numeroDeElementos; i++) {
+				cout << this->get(i).x << " " << this->get(i).y << " " << endl;
+			}
 		}
 
 	private: 

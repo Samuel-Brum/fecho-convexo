@@ -8,12 +8,7 @@ class Ponto {
     Ponto();
 
     Ponto(int x, int y);
-    
-    /// @brief Getter para coordenadas de um ponto
-    /// @return Vetor com coordenadas do ponto
-    Vetor<int> getCoordenadas();
 
-  private:
     int x;
     int y;
 };
@@ -21,6 +16,12 @@ class Ponto {
 float distancia(Ponto P, Ponto Q);
 
 float angulo(Ponto P, Ponto Q, Ponto R);
+
+bool mesmoPonto (Ponto p, Ponto q);
+
+bool mesmoVetor(Vetor<Ponto> P, Vetor<Ponto> Q);
+
+Vetor<Ponto> lerEntrada(string path);
 
 class FechoConvexo {
   private:
