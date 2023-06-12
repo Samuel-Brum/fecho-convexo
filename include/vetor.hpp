@@ -10,14 +10,14 @@ template <typename T> class Vetor {
 	public:
 		/// @brief Contrutor do Vetor
 		Vetor() {
-			arr = new T[1];
+			array = new T[1];
 			capacidade = 1;
 			numeroDeElementos = 0;
 		}
 
 		/// @brief Destrutor do Vetor
 		~Vetor() {
-			delete [] arr;
+			delete [] array;
 		}
 
 		/// @brief Insere elemento no final do vetor
@@ -26,15 +26,15 @@ template <typename T> class Vetor {
 			if (numeroDeElementos == capacidade) {
 				T* temp = new T[2 * capacidade];
 				for (int i = 0; i < capacidade; i++) {
-					temp[i] = arr[i];
+					temp[i] = array[i];
 				} // capacidade dobra caso não haja mais espaço
 
-				delete[] arr;
+				delete[] array;
 				capacidade *= 2;
-				arr = temp;
+				array = temp;
 			}
 
-			arr[numeroDeElementos] = elemento;
+			array[numeroDeElementos] = elemento;
 			numeroDeElementos++;
 		}
 
@@ -45,7 +45,7 @@ template <typename T> class Vetor {
 			if (index == capacidade)
 				push(elemento);
 			else
-				arr[index] = elemento;
+				array[index] = elemento;
 		}
 
 		/// @brief Seletor de elemento específico do Vetor a partir da posição
@@ -53,7 +53,7 @@ template <typename T> class Vetor {
 		/// @return Elemento na posição <index>
 		T get(int index) {
 			if (index < numeroDeElementos)
-				return arr[index];
+				return array[index];
 		}
 
 		/// @brief Remove último elemento do Vetor
@@ -70,13 +70,13 @@ template <typename T> class Vetor {
 		/// @brief Imprime elementos
 		void print() {
 			for (int i = 0; i < numeroDeElementos; i++) {
-				cout << arr[i] << " ";
+				cout << array[i] << " ";
 			}
 			cout << endl;
 		}
 
 	private: 
-		T* arr;
+		T* array;
 		int capacidade;
 		int numeroDeElementos;
 };
