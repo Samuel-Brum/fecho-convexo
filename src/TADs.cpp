@@ -84,7 +84,5 @@ Vetor<Ponto> lerEntrada(string path) {
       pontos.push(ponto);
     }
   }
-  pontos.printPontos();
-  cout << endl;
   return pontos;
 }
