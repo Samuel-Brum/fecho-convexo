@@ -1,8 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.hpp"
 
-
-
 using namespace std;
 
 #include "vetor.hpp"
@@ -31,7 +29,5 @@ TEST_CASE("Testa função Angulo") {
 TEST_CASE("Jarvis funciona corretamente") {
   Vetor<Ponto> entrada10 = lerEntrada("./test/entradas/ENTRADA10.txt");
   Vetor<Ponto> saida10 = lerEntrada("./test/entradas/SAIDA10.txt");
-  CHECK(mesmoPonto(entrada10.get(0), Ponto(27,11)));
+  CHECK(mesmoVetor(jarvis(entrada10), saida10));
 }
-// Vetor<Ponto> saida10 = lerEntrada(".test/saidas/SAIDA10.txt");
-// CHECK(saidaTeste.get(0).x == saida10.get(0).y);

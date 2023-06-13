@@ -17,6 +17,8 @@ float distancia(Ponto P, Ponto Q);
 
 float angulo(Ponto P, Ponto Q, Ponto R);
 
+float orientacao(Ponto P, Ponto Q, Ponto R);
+
 bool mesmoPonto (Ponto p, Ponto q);
 
 bool mesmoVetor(Vetor<Ponto> P, Vetor<Ponto> Q);

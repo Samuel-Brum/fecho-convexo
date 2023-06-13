@@ -47,6 +47,10 @@ float angulo(Ponto P, Ponto O, Ponto Q) {
   } 
 }
 
+float orientacao(Ponto P, Ponto O, Ponto Q) {
+  return ((Q.y - O.y) * (O.x - P.x)) - ((O.y - P.y) * (Q.x - O.x));
+}
+
 bool mesmoPonto (Ponto p, Ponto q) {
   if (q.x == p.x && q.y == p.y) {
     return true;

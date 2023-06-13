@@ -15,10 +15,12 @@ template <typename T> class Vetor {
 			numeroDeElementos = 0;
 		}
 
+		/*
 		/// @brief Destrutor do Vetor
 		~Vetor() {
 			delete [] array;
 		}
+		*/
 
 		/// @brief Insere elemento no final do vetor
 		/// @param elemento Elemento a ser inserido
