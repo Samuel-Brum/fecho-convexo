@@ -79,7 +79,6 @@ TEST_CASE("Insertion Sort") {
   SUBCASE("10 Pontos") {
     Vetor teste = insertionSort(entrada10, findLowest(entrada10));
     CHECK(mesmoVetor(teste, sort10));
-    teste.printPontos();
   }
   SUBCASE("100 Pontos") {
     Vetor teste = insertionSort(entrada100, findLowest(entrada100)); 
@@ -90,8 +89,5 @@ TEST_CASE("Merge Sort") {
   Vetor entradaSort10 = lerEntrada("./test/hull/ENTRADA10.txt");
   Vetor entradaSort100 = lerEntrada("./test/hull/ENTRADA100.txt");
   mergeSort(entradaSort10, findLowest(entradaSort10), 0 , entrada10.size() - 1);
-  entradaSort10.printPontos();
-  CHECK(mesmoVetor(entradaSort10, sort10));
- 
-  
+  CHECK(mesmoVetor(entradaSort10, sort10));  
 }

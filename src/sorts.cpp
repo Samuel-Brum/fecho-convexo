@@ -42,7 +42,7 @@ void merge(Vetor pontos, Ponto P0, int esq, int meio, int dir) {
   Vetor tempEsq(sizeTempEsq);
   Vetor tempDir(sizeTempDir);
 
-  cout << sizeTempEsq << " " <<sizeTempDir << endl;
+  //cout << sizeTempEsq << " " <<sizeTempDir << endl;
 
   for (int i = 0; i < sizeTempEsq; i++) {
     tempEsq.push(pontos.get(esq + i), i);
@@ -67,7 +67,7 @@ void merge(Vetor pontos, Ponto P0, int esq, int meio, int dir) {
   while (i < sizeTempEsq && j < sizeTempDir) {
       Ponto I = tempEsq.get(i);
       Ponto J = tempDir.get(j);
-    if (angulo(eixo_x, P0, I) >= angulo(eixo_x, P0, J)) {
+    if (angulo(eixo_x, P0, I) > angulo(eixo_x, P0, J)) {
       pontos.push(I, k);
       i++;
     } else {

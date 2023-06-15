@@ -25,7 +25,7 @@ Vetor jarvis(Vetor entrada) {
       Ponto P = entrada.get(onHull);
       Ponto I = entrada.get(ponto);
       Ponto Q = entrada.get(proxPonto);
-      float orient = orientacao(P, I, Q);
+      float orient = orientacao(Q, I, P);
 
       if (orient < 0) {
         proxPonto = ponto;  

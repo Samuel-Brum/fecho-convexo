@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
   entrada10.push(Ponto(6, 22));
   entrada10.push(Ponto(68, 79));
   entrada10.push(Ponto(66, 68));
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 0; i++) {
     entrada10.push(Ponto(12,12));
   }
 
@@ -38,22 +38,31 @@ int main(int argc, char* argv[]) {
   saida10.push(Ponto(6,22));
   saida10.push(Ponto(6,82));
 
-
+  Vetor hull10;
+  hull10.push(Ponto(6,8));
+  hull10.push(Ponto(45,13));
+  hull10.push(Ponto(66,68));
+  hull10.push(Ponto(68,79));
+  hull10.push(Ponto(33, 96));
+  hull10.push(Ponto(6,82));
 
   cout << "Antes: " << endl;
   entrada10.printPontos();
-  cout << "Size: " << entrada10.size() << endl;
-  /*
-  Vetor result;
-  result = insertionSort(entrada10, findLowest(entrada10));
+  
+  Vetor result(entrada10.size());
+  //result = insertionSort(entrada10, findLowest(entrada10));
+  //cout << "Insertion Sort" << endl;
+  //result.printPontos();
+  //cout << "Jarvis" << endl;
+  //result = jarvis(entrada10);
+  //result.printPontos();
+  result = graham(entrada10);
   result.printPontos();
-  result = jarvis(entrada10);
-  result.printPontos();
-  */
-  cout << endl << "Depois: " << endl << endl;
-  mergeSort(entrada10, findLowest(entrada10), 0 , entrada10.size() - 1);
-  entrada10.printPontos();
+
+  //cout << endl << "Depois: " << endl << endl;
+  //mergeSort(entrada10, findLowest(entrada10), 0 , entrada10.size() - 1);
+  //entrada10.printPontos();
 
   cout << "Correto: " << endl << endl;
-  saida10.printPontos();
+  hull10.printPontos();
 }

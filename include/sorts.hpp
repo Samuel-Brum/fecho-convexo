@@ -9,6 +9,7 @@
 ///        insertion sort
 /// @param pontos Vetor de pontos
 /// @param P0 Ponto mais baixo do conjunto
+/// @return Vetor de pontos ordenados
 Vetor insertionSort(Vetor pontos, Ponto P0);
 
 /// @brief Ordena um vetor de pontos de acordo com o ângulo formado com uma reta

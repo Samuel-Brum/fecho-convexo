@@ -19,7 +19,7 @@ class Vetor {
 		Vetor(int size) {
 			array = new Ponto[size];
 			capacidade = 2 * size;
-			numeroDeElementos = size;
+			numeroDeElementos = 0;
 		}
 
 /*
