@@ -1,8 +1,8 @@
 #include "graham.hpp"
+#include "sorts.hpp"
 
-Vetor<Ponto> graham(Vetor<Ponto> entrada, char sortType) {
-  Vetor<Ponto> saida;
 
+Ponto findLowest(Vetor entrada) {
   int baixo = 0;
 
   for (int i = 1; i < entrada.size(); i++) {
@@ -18,8 +18,22 @@ Vetor<Ponto> graham(Vetor<Ponto> entrada, char sortType) {
       }
     }
   }
+  return entrada.get(baixo);
+}
 
-  saida.push(entrada.get(baixo));
+Vetor graham(Vetor entrada, char sortType) {
+  Vetor ordenado;
+  Vetor saida;
+
+  Ponto low = findLowest(entrada);
+
+  ordenado = insertionSort(entrada, low);
+  
+  saida.push(ordenado.pop(), 0);
+  saida.push(ordenado.pop(), 1);
+  saida.push(ordenado.pop(), 2);
 
   
+
+  return saida;
 }

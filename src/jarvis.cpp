@@ -1,8 +1,8 @@
 #include "jarvis.hpp"
 #include <cmath>
 
-Vetor<Ponto> jarvis(Vetor<Ponto> entrada) {
-  Vetor<Ponto> saida;
+Vetor jarvis(Vetor entrada) {
+  Vetor saida;
 
   // Primeira entrada
   int esquerda = 0;

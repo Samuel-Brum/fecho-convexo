@@ -3,11 +3,38 @@
 
 using namespace std;
 
-#include "vetor.hpp"
-#include "TADs.hpp"
 #include "jarvis.hpp"
 #include "sorts.hpp"
 #include "graham.hpp"
+
+bool mesmoVetor(Vetor P, Vetor Q) {
+	if (P.size() != Q.size()) {
+		return false;
+	}
+	for (int i = 0; i < P.size(); i++) {
+		if (!mesmoPonto(P.get(i),Q.get(i))) {
+			return false;
+		}
+	}
+  return true;
+}
+
+Vetor lerEntrada(string path) {
+  Vetor pontos;
+  ifstream file;
+  Ponto ponto;
+  int x, y;
+
+  file.open(path);
+  if (file.is_open()) {
+    while(file >> x >> y) {
+      ponto.x = x;
+      ponto.y = y;
+      pontos.push(ponto);
+    }
+  }
+  return pontos;
+}
 
 TEST_CASE("Testa função distância") {
   Ponto O;
@@ -30,22 +57,41 @@ TEST_CASE("Testa função Angulo") {
   CHECK(angulo(P,O,R) == (float) M_PI_2);
 }
 
+Vetor entrada10 = lerEntrada("./test/hull/ENTRADA10.txt");
+Vetor entrada100 = lerEntrada("./test/hull/ENTRADA100.txt");
+
+Vetor saida10 = lerEntrada("./test/hull/SAIDA10.txt");
+Vetor saida100 = lerEntrada("./test/hull/SAIDA100.txt");
+
+Vetor sort10 = lerEntrada("./test/sort/SAIDA10.txt");
+
 TEST_CASE("Jarvis funciona corretamente") {
   SUBCASE("Teste 10") {
-    Vetor<Ponto> entrada10 = lerEntrada("./test/hull/ENTRADA10.txt");
-    Vetor<Ponto> saida10 = lerEntrada("./test/hull/SAIDA10.txt");
     CHECK(mesmoVetor(jarvis(entrada10), saida10));
   }
 
   SUBCASE("Teste 100") {
-    Vetor<Ponto> entrada100 = lerEntrada("./test/hull/ENTRADA100.txt");
-    Vetor<Ponto> saida100 = lerEntrada("./test/hull/SAIDA100.txt");
     CHECK(mesmoVetor(jarvis(entrada100), saida100));
   }
 }
 
 TEST_CASE("Insertion Sort") {
-  Vetor<Ponto> entrada10 = lerEntrada("./test/hull/ENTRADA10.txt");
-  Vetor<Ponto> saida10 = lerEntrada("./test/sort/SAIDA10.txt");
-  CHECK(mesmoVetor(insertionSort(entrada10, Ponto(6,8)), saida10));
+  SUBCASE("10 Pontos") {
+    Vetor teste = insertionSort(entrada10, findLowest(entrada10));
+    CHECK(mesmoVetor(teste, sort10));
+    teste.printPontos();
+  }
+  SUBCASE("100 Pontos") {
+    Vetor teste = insertionSort(entrada100, findLowest(entrada100)); 
+  }
+}
+
+TEST_CASE("Merge Sort") {
+  Vetor entradaSort10 = lerEntrada("./test/hull/ENTRADA10.txt");
+  Vetor entradaSort100 = lerEntrada("./test/hull/ENTRADA100.txt");
+  mergeSort(entradaSort10, findLowest(entradaSort10), 0 , entrada10.size() - 1);
+  entradaSort10.printPontos();
+  CHECK(mesmoVetor(entradaSort10, sort10));
+ 
+  
 }

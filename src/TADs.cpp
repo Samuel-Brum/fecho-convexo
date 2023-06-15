@@ -1,9 +1,6 @@
 #include <cmath>
-#include <iostream>
-#include <fstream>
 
 #include "TADs.hpp"
-#include "vetor.hpp"
 
 using namespace std;
 
@@ -15,18 +12,6 @@ Ponto::Ponto() {
 Ponto::Ponto(int x, int y) {
   this->x = x;
   this->y = y;
-}
-
-Reta::Reta(Ponto A, Ponto B) {
-  this->A = A;
-  this->B = B;
-}
-
-Vetor<Ponto> Reta::getPontos() {
-  Vetor<Ponto> pontos;
-  pontos.push(this->A);
-  pontos.push(this->B);
-  return pontos;
 }
 
 float distancia(Ponto P, Ponto O) {
@@ -58,31 +43,4 @@ bool mesmoPonto (Ponto p, Ponto q) {
   return false;
 }
 
-bool mesmoVetor(Vetor<Ponto> P, Vetor<Ponto> Q) {
-	if (P.size() != Q.size()) {
-		return false;
-	}
-	for (int i = 0; i < P.size(); i++) {
-		if (!mesmoPonto(P.get(i),Q.get(i))) {
-			return false;
-		}
-	}
-  return true;
-}
 
-Vetor<Ponto> lerEntrada(string path) {
-  Vetor<Ponto> pontos;
-  ifstream file;
-  Ponto ponto;
-  int x, y;
-
-  file.open(path);
-  if (file.is_open()) {
-    while(file >> x >> y) {
-      ponto.x = x;
-      ponto.y = y;
-      pontos.push(ponto);
-    }
-  }
-  return pontos;
-}
