@@ -59,6 +59,7 @@ void merge(Vetor pontos, Ponto P0, int esq, int meio, int dir) {
   cout << endl << endl;
   */
   
+  
 
   int i = 0;
   int j = 0;
@@ -67,7 +68,8 @@ void merge(Vetor pontos, Ponto P0, int esq, int meio, int dir) {
   while (i < sizeTempEsq && j < sizeTempDir) {
       Ponto I = tempEsq.get(i);
       Ponto J = tempDir.get(j);
-    if (angulo(eixo_x, P0, I) > angulo(eixo_x, P0, J)) {
+    if (angulo(eixo_x, P0, I) > angulo(eixo_x, P0, J) ||
+       (angulo(eixo_x, P0, I) == angulo(eixo_x, P0, J) && distancia(P0, I) > distancia(P0, J)) ) {
       pontos.push(I, k);
       i++;
     } else {
@@ -90,11 +92,11 @@ void merge(Vetor pontos, Ponto P0, int esq, int meio, int dir) {
     j++; 
     k++;  
   }
-  /*
-  cout << "Merged: " << endl;
-  pontos.printPontos();
-  cout << endl;
-  */
+  
+  //cout << "Merged: " << endl;
+  //pontos.printPontos();
+  //cout << endl;
+  
 }
 
 void mergeSort(Vetor pontos, Ponto P0, int esq, int dir) {
@@ -108,4 +110,7 @@ void mergeSort(Vetor pontos, Ponto P0, int esq, int dir) {
   }
 }
 
+void bucketSort() {
+  
+}
 

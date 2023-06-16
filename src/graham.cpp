@@ -21,19 +21,26 @@ Ponto findLowest(Vetor entrada) {
   return entrada.get(baixo);
 }
 
-Vetor graham(Vetor entrada) {
+Vetor graham(Vetor entrada, char sortType) {
   Vetor ordenado(entrada.size());
-
-  // Vetor ordenado_dist(entrada.size());
-
-  Vetor pilha(entrada.size());
-
+  ordenado = entrada;
   Ponto low = findLowest(entrada);
 
-  ordenado = insertionSort(entrada, low);
+  switch (sortType)
+  {
+  case 'i':
+    ordenado = insertionSort(entrada, low);
+    break;
+  case 'm':
+    mergeSort(ordenado, low, 0, ordenado.size() - 1);
+    break;
+  }
+  
   
 
   /*
+  // Vetor ordenado_dist(entrada.size());
+
   // Remove pontos de angulo igual
   for (int i = 0; i < ordenado.size(); i ++) {
     Ponto I = ordenado.get(i);
@@ -45,25 +52,24 @@ Vetor graham(Vetor entrada) {
     ordenado_dist.push(ordenado.get(i));
   }
   */
-  
+  Vetor pilha(entrada.size());
   pilha.push(low);
   pilha.push(ordenado.get(1));
   pilha.push(ordenado.get(2));
-  int size = ordenado.size();
-  cout << "ordenado: " << endl;
-  ordenado.printPontos();
-  cout << "Pilha: " << endl;
-  pilha.printPontos();
+  //cout << "ordenado: " << endl;
+  //ordenado.printPontos();
+  //cout << "Pilha: " << endl;
+  //pilha.printPontos();
 
   for (int i = 3; i < ordenado.size() - 1; i++) {
-    cout << "Para: " << i << endl;
-    pilha.printPontos();
+    //cout << "Para: " << i << endl;
+    //pilha.printPontos();
     while (pilha.size() > 1 && (orientacao(ordenado.get(i), pilha.get(pilha.size() - 1), pilha.get(pilha.size() - 2))) > 0) {
-      cout << "Antes: " << endl;
-      pilha.printPontos();
+      //cout << "Antes: " << endl;
+      //pilha.printPontos();
       pilha.pop();
-      cout << "Depois: " << endl;
-      pilha.printPontos();
+      //cout << "Depois: " << endl;
+      //pilha.printPontos();
     }
     pilha.push(ordenado.get(i));
   }

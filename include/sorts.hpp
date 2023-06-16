@@ -21,6 +21,11 @@ Vetor insertionSort(Vetor pontos, Ponto P0);
 /// @param dir Limite de acesso à direita ao vetor pontos
 void mergeSort(Vetor pontos, Ponto P0, int esq, int dir);
 
-
+/// @brief Ordena um vetor de pontos de acordo com o ângulo formado com uma reta
+///        horizontal contendo o ponto mais baixo do vetor pelo algorítmo
+///        merge sort
+/// @param pontos Vetor de pontos
+/// @param bucketSize Número de subvetores
+void bucketSort(Vetor pontos, int bucketNo);
 
 #endif

@@ -14,6 +14,11 @@
       "cwd": "c:\\Users\\Samuel\\Desktop\\TP\\fecho-convexo\\bin",
       "binaryPath": "c:\\Users\\Samuel\\Desktop\\TP\\fecho-convexo\\bin\\nomeDoProjeto",
       "binaryArgs": []
+    },
+    {
+      "cwd": "c:\\Users\\Samuel\\Desktop\\TP\\fecho-convexo\\bin",
+      "binaryPath": "c:\\Users\\Samuel\\Desktop\\TP\\fecho-convexo\\bin\\fecho",
+      "binaryArgs": []
     }
   ],
   "makefile.configurations": [],

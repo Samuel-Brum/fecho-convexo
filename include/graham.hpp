@@ -11,6 +11,6 @@ Ponto findLowest(Vetor entrada);
 /// @brief Realiza o algorítmo de Graham para um conjunto de pontos
 /// @param entrada Conjunto de pontos 
 /// @return Vetor de pontos com casca convexa
-Vetor graham(Vetor entrada);
+Vetor graham(Vetor entrada, char sortType);
 
 #endif

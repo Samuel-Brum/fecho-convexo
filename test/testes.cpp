@@ -91,3 +91,30 @@ TEST_CASE("Merge Sort") {
   mergeSort(entradaSort10, findLowest(entradaSort10), 0 , entrada10.size() - 1);
   CHECK(mesmoVetor(entradaSort10, sort10));  
 }
+
+// Por alguma razão falham, mas os vetores são identicos...
+TEST_CASE("Graham") {
+  cout << "Por alguma razao falham, mas os vetores são identicos..." << endl;
+  SUBCASE("Teste 10") {
+    CHECK(mesmoVetor(graham(entrada10, 'i'), saida10));
+    CHECK(mesmoVetor(graham(entrada10, 'm'), saida10));
+
+    cout << "graham insert: " << endl;
+    graham(entrada10, 'i').printPontos();
+    cout << "graham merge: " << endl;
+    graham(entrada10, 'm').printPontos();
+    cout << "saida correta: " << endl;
+    saida10.printPontos();
+  }
+
+  SUBCASE("Teste 100") {
+    CHECK(mesmoVetor(graham(entrada100, 'i'), saida100));
+    cout << "graham insert: " << endl;
+    graham(entrada100, 'i').printPontos();
+    cout << "graham merge: " << endl;
+    graham(entrada100, 'm').printPontos();
+    cout << "saida correta: " << endl;
+    saida100.printPontos();
+    CHECK(mesmoVetor(graham(entrada100, 'm'), saida100));
+  }
+}
