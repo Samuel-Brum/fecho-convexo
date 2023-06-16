@@ -58,13 +58,12 @@ Vetor graham(Vetor entrada) {
   for (int i = 3; i < ordenado.size() - 1; i++) {
     cout << "Para: " << i << endl;
     pilha.printPontos();
-    while ((orientacao(ordenado.get(i), pilha.get(pilha.size() - 1), pilha.get(pilha.size() - 2))) > 0) {
+    while (pilha.size() > 1 && (orientacao(ordenado.get(i), pilha.get(pilha.size() - 1), pilha.get(pilha.size() - 2))) > 0) {
       cout << "Antes: " << endl;
       pilha.printPontos();
       pilha.pop();
       cout << "Depois: " << endl;
       pilha.printPontos();
-      i++;
     }
     pilha.push(ordenado.get(i));
   }

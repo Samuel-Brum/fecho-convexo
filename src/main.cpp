@@ -7,8 +7,31 @@
 
 using namespace std;
 
+Vetor lerEntrada(string path);
+
 int main(int argc, char* argv[]) {
-  Vetor entrada10;
+  Vetor entrada = lerEntrada(argv[1]); 
+}
+
+Vetor lerEntrada(string path) {
+  Vetor pontos;
+  ifstream file;
+  Ponto ponto;
+  int x, y;
+
+  file.open(path);
+  if (file.is_open()) {
+    while(file >> x >> y) {
+      ponto.x = x;
+      ponto.y = y;
+      pontos.push(ponto);
+    }
+  }
+  return pontos;
+}
+
+/*
+Vetor entrada10;
   entrada10.push(Ponto(27, 11));
   entrada10.push(Ponto(6, 8));
   entrada10.push(Ponto(6, 82));
@@ -54,8 +77,8 @@ int main(int argc, char* argv[]) {
   //cout << "Insertion Sort" << endl;
   //result.printPontos();
   //cout << "Jarvis" << endl;
-  //result = jarvis(entrada10);
-  //result.printPontos();
+  result = jarvis(entrada10);
+  result.printPontos();
   result = graham(entrada10);
   result.printPontos();
 
@@ -65,4 +88,4 @@ int main(int argc, char* argv[]) {
 
   cout << "Correto: " << endl << endl;
   hull10.printPontos();
-}
+  */

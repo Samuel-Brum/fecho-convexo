@@ -42,7 +42,7 @@
 # -----------------------------------------------------------------------------
 
 CXX := g++
-CXXFLAGS := -Wall -c -Iinclude -pg -g 
+CXXFLAGS := -Wall -c -Iinclude -g
 
 HEADERS := $(wildcard include/*.hpp) # arquivos .hpp em include
 SOURCES := $(wildcard src/*.cpp) # arquivos .cpp em src
@@ -51,7 +51,7 @@ TEST_SRC := $(wildcard test/*.cpp) # arquivos .cpp em test
 TEST_OBJ := $(filter-out obj/main.o, $(OBJECTS)) # OBJECTS menos main.o
 TEST_OBJ += $(patsubst test/src/%.cpp, obj/%.o, $(TEST_SRC))
 
-EXE := bin/nomeDoProjeto # nome do executavel do projeto
+EXE := bin/fecho # nome do executavel do projeto
 TEST_EXE := bin/testes # nome dos executavel de testes
 
 $(EXE): $(OBJECTS) $(HEADERS) # Alvo do executavel do projeto
