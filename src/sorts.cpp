@@ -109,8 +109,3 @@ void mergeSort(Vetor pontos, Ponto P0, int esq, int dir) {
     merge(pontos, P0, esq, meio, dir);
   }
 }
-
-void bucketSort() {
-  
-}
-

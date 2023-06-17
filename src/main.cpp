@@ -9,20 +9,27 @@
 
 using namespace std;
 
-#define N 10000
+#define N 30000
 
 Vetor lerEntrada(string path);
 
 int main(int argc, char* argv[]) {
-  //Vetor entrada = lerEntrada(argv[1]); 
-  Vetor entrada = lerEntrada("./test/hull/ENTRADA10.txt");
+  Vetor entrada = lerEntrada(argv[1]); 
   cout << "FECHO CONVEXO: " << endl;
   jarvis(entrada).printPontos();
   cout << endl;
 
   cout.precision(2);
 
+
   auto timer = Timer();
+  for (int i = 0; i < N; i++) {
+    jarvis(entrada);
+  }
+  cout << "GRAHAM + MERGESORT: " << timer.Stop() << "s" << endl;
+
+  timer.reset();
+
   for (int i = 0; i < N; i++) {
     graham(entrada, 'i');
   }
@@ -32,15 +39,9 @@ int main(int argc, char* argv[]) {
   for (int i = 0; i < N; i++) {
     graham(entrada, 'm');
   }
-  cout << "GRAHAM + MERGESORT: " << timer.Stop() << "s" << endl;
-
-  timer.reset();
-  for (int i = 0; i < N; i++) {
-    jarvis(entrada);
-  }
   cout << "JARVIS: " << timer.Stop() << "s" << endl;
 
-  timer.reset();
+ 
   
 
 }
